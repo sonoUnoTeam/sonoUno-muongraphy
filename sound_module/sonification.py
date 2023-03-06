@@ -18,7 +18,8 @@ def sound_init():
     """
     Initializate the sound mixer with pygame to play sounds during plot display
     """
-    pygame.mixer.init(44100, -16, channels = 1, buffer=4095, allowedchanges=pygame.AUDIO_ALLOW_FREQUENCY_CHANGE)
+    #pygame.mixer.init(44100, -16, channels = 2, buffer=4095, allowedchanges=pygame.AUDIO_ALLOW_FREQUENCY_CHANGE | pygame.AUDIO_ALLOW_CHANNELS_CHANGE)
+    pygame.mixer.init(22050, -16, channels = 2, buffer=4095, allowedchanges=pygame.AUDIO_ALLOW_FREQUENCY_CHANGE | pygame.AUDIO_ALLOW_CHANNELS_CHANGE)
 
 def set_bip():
     """
@@ -105,15 +106,19 @@ def get_silence(duration):
     """
     return get_sine_wave(0, duration)
 
-def play_sound(sound):
+def play_sound(sound, vol_left=1, vol_right=1):
     """
-    Use pygame and play the given array.
+    Use pygame and play the given array, with the possibility to set the volume
+    of each left/right speaker.
     Parameters
     ----------
     sound : array, parameter to be sonified
+    vol_left : volume of the left speaker, default 1 (max volume)
+    vol_right : volume of the right speaker, default 1 (max volume)
     """
     sound_play = pygame.mixer.Sound(sound.astype('int16'))
-    sound_play.play()
+    channel = sound_play.play()
+    channel.set_volume(vol_left,vol_right)
     
 def array_savesound(array):
     """
