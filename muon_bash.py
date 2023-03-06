@@ -228,7 +228,7 @@ for filename in glob.glob(os.path.join(path, extension)):
     sd.array_savesound(bip)
     time.sleep(1)
     #play the part on the left
-    sd.play_sound(sound_ax1)
+    sd.play_sound(sound_ax1,0,1)
     sd.add_array_savesound(sound_ax1)
     count = 0
     for px in px_ax1:
@@ -240,7 +240,7 @@ for filename in glob.glob(os.path.join(path, extension)):
         count = count + 1
     plt.pause(0.5)
     time.sleep(0.5)
-    sd.play_sound(sound_ax3)
+    sd.play_sound(sound_ax3,0,1)
     sd.add_array_savesound(sound_ax3)
     count = 0
     ax1.plot(px_ax1,py_ax1,color='k', marker='o', linestyle='')
@@ -253,7 +253,7 @@ for filename in glob.glob(os.path.join(path, extension)):
         count = count + 1
     plt.pause(0.5)
     time.sleep(0.5)
-    sd.play_sound(sound_ax5)
+    sd.play_sound(sound_ax5,0,1)
     sd.add_array_savesound(sound_ax5)
     count = 0
     ax3.plot(px_ax3,py_ax3,color='k', marker='o', linestyle='')
@@ -277,7 +277,7 @@ for filename in glob.glob(os.path.join(path, extension)):
     sd.add_array_savesound(sd.get_silence(1))
     time.sleep(1)
     #play the part on the right
-    sd.play_sound(sound_ax2)
+    sd.play_sound(sound_ax2,1,0)
     sd.add_array_savesound(sound_ax2)
     count = 0
     for px in px_ax2:
@@ -289,7 +289,7 @@ for filename in glob.glob(os.path.join(path, extension)):
         count = count + 1
     plt.pause(0.5)
     time.sleep(0.5)
-    sd.play_sound(sound_ax4)
+    sd.play_sound(sound_ax4,1,0)
     sd.add_array_savesound(sound_ax4)
     count = 0
     ax2.plot(px_ax2,py_ax2,color='k', marker='o', linestyle='')
@@ -302,7 +302,7 @@ for filename in glob.glob(os.path.join(path, extension)):
         count = count + 1
     plt.pause(0.5)
     time.sleep(0.5)
-    sd.play_sound(sound_ax6)
+    sd.play_sound(sound_ax6,1,0)
     sd.add_array_savesound(sound_ax6)
     count = 0
     ax4.plot(px_ax4,py_ax4,color='k', marker='o', linestyle='')
