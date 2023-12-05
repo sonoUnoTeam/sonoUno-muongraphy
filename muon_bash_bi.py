@@ -228,8 +228,11 @@ for filename in glob.glob(os.path.join(path, extension)):
     sd.array_savesound(bip)
     time.sleep(1)
     #play the part on the left
+    '''First detector layer'''
     sd.play_sound(sound_ax1,1,0)
+    sd.play_sound(sound_ax2,0,1)
     sd.add_array_savesound(sound_ax1)
+    sd.add_array_savesound(sound_ax2)
     count = 0
     for px in px_ax1:
         if px == 32:
@@ -238,47 +241,6 @@ for filename in glob.glob(os.path.join(path, extension)):
             color_index = int(px/4)
         ax1.plot(px,py_ax1[count],color=list_colors[color_index], marker='o', linestyle='')
         count = count + 1
-    plt.pause(0.5)
-    time.sleep(0.5)
-    sd.play_sound(sound_ax3,1,0)
-    sd.add_array_savesound(sound_ax3)
-    count = 0
-    ax1.plot(px_ax1,py_ax1,color='k', marker='o', linestyle='')
-    for px in px_ax3:
-        if px == 16:
-            color_index = int((px-1)/2)
-        else:
-            color_index = int(px/2)
-        ax3.plot(px,py_ax3[count],color=list_colors[color_index], marker='o', linestyle='')
-        count = count + 1
-    plt.pause(0.5)
-    time.sleep(0.5)
-    sd.play_sound(sound_ax5,1,0)
-    sd.add_array_savesound(sound_ax5)
-    count = 0
-    ax3.plot(px_ax3,py_ax3,color='k', marker='o', linestyle='')
-    for px in px_ax5:
-        if px == 32:
-            color_index = int((px-1)/4)
-        else:
-            color_index = int(px/4)
-        ax5.plot(px,py_ax5[count],color=list_colors[color_index], marker='o', linestyle='')
-        count = count + 1
-    plt.pause(0.5)
-    time.sleep(0.5)
-    ax5.plot(px_ax5,py_ax5,color='k', marker='o', linestyle='')
-    plt.pause(0.1)
-    # play bip of the beggining
-    sd.play_sound(bip)
-    sd.add_array_savesound(bip)
-    time.sleep(1)
-    #silence
-    sd.play_sound(sd.get_silence(1))
-    sd.add_array_savesound(sd.get_silence(1))
-    time.sleep(1)
-    #play the part on the right
-    sd.play_sound(sound_ax2,0,1)
-    sd.add_array_savesound(sound_ax2)
     count = 0
     for px in px_ax2:
         if px == 32:
@@ -289,8 +251,21 @@ for filename in glob.glob(os.path.join(path, extension)):
         count = count + 1
     plt.pause(0.5)
     time.sleep(0.5)
+    
+    '''Second detector layer'''
+    sd.play_sound(sound_ax3,1,0)
     sd.play_sound(sound_ax4,0,1)
+    sd.add_array_savesound(sound_ax3)
     sd.add_array_savesound(sound_ax4)
+    count = 0
+    ax1.plot(px_ax1,py_ax1,color='k', marker='o', linestyle='')
+    for px in px_ax3:
+        if px == 16:
+            color_index = int((px-1)/2)
+        else:
+            color_index = int(px/2)
+        ax3.plot(px,py_ax3[count],color=list_colors[color_index], marker='o', linestyle='')
+        count = count + 1
     count = 0
     ax2.plot(px_ax2,py_ax2,color='k', marker='o', linestyle='')
     for px in px_ax4:
@@ -302,8 +277,21 @@ for filename in glob.glob(os.path.join(path, extension)):
         count = count + 1
     plt.pause(0.5)
     time.sleep(0.5)
+    
+    '''Third detector layer'''
+    sd.play_sound(sound_ax5,1,0)
     sd.play_sound(sound_ax6,0,1)
+    sd.add_array_savesound(sound_ax5)
     sd.add_array_savesound(sound_ax6)
+    count = 0
+    ax3.plot(px_ax3,py_ax3,color='k', marker='o', linestyle='')
+    for px in px_ax5:
+        if px == 32:
+            color_index = int((px-1)/4)
+        else:
+            color_index = int(px/4)
+        ax5.plot(px,py_ax5[count],color=list_colors[color_index], marker='o', linestyle='')
+        count = count + 1
     count = 0
     ax4.plot(px_ax4,py_ax4,color='k', marker='o', linestyle='')
     for px in px_ax6:
@@ -315,8 +303,24 @@ for filename in glob.glob(os.path.join(path, extension)):
         count = count + 1
     plt.pause(0.5)
     time.sleep(0.5)
+    ax5.plot(px_ax5,py_ax5,color='k', marker='o', linestyle='')
     ax6.plot(px_ax6,py_ax6,color='k', marker='o', linestyle='')
     plt.pause(0.1)
+    
+    
+    # play bip of the beggining
+    sd.play_sound(bip)
+    sd.add_array_savesound(bip)
+    time.sleep(1)
+    #silence
+    sd.play_sound(sd.get_silence(1))
+    sd.add_array_savesound(sd.get_silence(1))
+    time.sleep(1)
+    
+    #play the part on the right
+    
+    
+    
     wav_name = path + '/' + os.path.basename(filename[:-4]) + '_sound.wav'
     # mp3_name = path + '/' + os.path.basename(filename[:-4]) + '_sound.mp3'
     sd.save_sound(wav_name)

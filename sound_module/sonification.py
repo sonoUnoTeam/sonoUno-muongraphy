@@ -19,7 +19,18 @@ def sound_init():
     Initializate the sound mixer with pygame to play sounds during plot display
     """
     #pygame.mixer.init(44100, -16, channels = 2, buffer=4095, allowedchanges=pygame.AUDIO_ALLOW_FREQUENCY_CHANGE | pygame.AUDIO_ALLOW_CHANNELS_CHANGE)
-    pygame.mixer.init(22050, -16, channels = 2, buffer=4095, allowedchanges=pygame.AUDIO_ALLOW_FREQUENCY_CHANGE | pygame.AUDIO_ALLOW_CHANNELS_CHANGE)
+    a = pygame.mixer.init(22050, -16, channels = 2, buffer=4095, allowedchanges=pygame.AUDIO_ALLOW_FREQUENCY_CHANGE | pygame.AUDIO_ALLOW_CHANNELS_CHANGE)
+    print(a)
+    print('Here channels:')
+    print(pygame.mixer.get_num_channels())
+    print(pygame.mixer.Channel(0))
+    print(pygame.mixer.Channel(1))
+    print(pygame.mixer.Channel(2))
+    print(pygame.mixer.Channel(3))
+    print(pygame.mixer.Channel(4))
+    print(pygame.mixer.Channel(5))
+    print(pygame.mixer.Channel(6))
+    print(pygame.mixer.Channel(7))
 
 def set_bip():
     """
